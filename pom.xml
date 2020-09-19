@@ -8,7 +8,7 @@
         <version>1.0.0</version>
     </parent>
 
-    <artifactId>ac-timer</artifactId>
+    <artifactId>demo-api-timer</artifactId>
     <version>${timer.module.version}</version>
 
     <dependencies>
