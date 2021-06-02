@@ -1,6 +1,8 @@
 package com.demo.api.timer.job;
 
+import com.alibaba.fastjson.JSONObject;
 import com.demo.api.timer.business.UserBusiness;
+import com.demo.core.user.common.po.User;
 import com.demo.sdk.util.ExceptionUtils;
 import com.demo.timer.job.BaseJob;
 import com.xxl.job.core.handler.annotation.JobHandler;
@@ -27,7 +29,9 @@ public class TestJob extends BaseJob {
 
             logger.info("任务开启");
 
-            userBusiness.get(1);
+            User user = userBusiness.get(1);
+
+            logger.info("[user] = {}", JSONObject.toJSONString(user));
 
         }catch (Exception ex) {
             logger.error("测试任务失败执行异常，[error] = {}", ExceptionUtils.getExceptionMsg(ex));
