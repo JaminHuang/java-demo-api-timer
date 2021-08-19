@@ -12,12 +12,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-/**
- * demo项目集成测试任务
- *
- * @author jamin
- * @date 2020/9/17
- */
 @Service
 public class TestJob {
 
@@ -27,11 +21,16 @@ public class TestJob {
     private UserBusiness userBusiness;
 
     @XxlJob("testJob")
-    protected void run(String param) {
+    protected void run() {
 
         try {
 
             XxlJobHelper.log("任务开启");
+
+            // 获取传入参数
+            String param = XxlJobHelper.getJobParam();
+
+            XxlJobHelper.log("[param] = {}", param);
 
             User user = userBusiness.get(1);
 
